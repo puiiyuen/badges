@@ -4,7 +4,7 @@
 
 ### Usage
 ``` markdown
-https://api.peiyuan.ch/badges/leetcode/{username}/{option}<query>
+https://badge.peiyuan.ch/leetcode/{username}/{option}<query>
 ```
 | Parameter | Value | Required | Default |
 |:---:|:---:|:---:|:---:|
@@ -24,10 +24,10 @@ Accepted Submissions
 
 |All|Easy|Medium|Hard|
 |---|---|---|---|
-|[![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?accepted=true)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?accepted=true&difficulty=easy)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?accepted=true&difficulty=medium)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?accepted=true&difficulty=hard)]() |
+|[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=easy)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=medium)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=hard)]() |
 
 Total Submissions
 
 |All|Easy|Medium|Hard|
 |---|---|---|---|
-|[![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?difficulty=easy)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?difficulty=medium)]() | [![](https://api.peiyuan.ch/badges/leetcode/puiiyuen/submission?difficulty=hard)]() |
+|[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=easy)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=medium)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=hard)]() |
