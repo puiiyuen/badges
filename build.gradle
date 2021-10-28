@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.hidetake.swagger.generator' version '2.18.2' //Swagger Generator Plugin for Gradle
+}
+
+group = 'ch.peiyuan'
+version = '0.1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+swaggerSources {
+    badges {
+        inputFile = file("${rootDir}/src/main/resources/api/badges-api.yaml")
+        code {
+            language = 'spring'
+            configFile = file("${rootDir}/src/main/resources/api/config.json")
+            rawOptions = ['--ignore-file-override', file("${rootDir}/src/main/resources/api/.swagger-codegen-ignore")]
+            components = [models:true, apis: true,supportingFiles:"ApiUtil.java"]
+        }
+    }
+}
+
+compileJava.dependsOn swaggerSources.badges.code
+sourceSets.main.java.srcDir "${swaggerSources.badges.code.outputDir}/src/main/java"
+sourceSets.main.resources.srcDir "${swaggerSources.badges.code.outputDir}/src/main/resources"
+
+build.dependsOn generateSwaggerUI
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
+
+    //Swagger
+    swaggerCodegen 'org.openapitools:openapi-generator-cli:4.3.1'
+    swaggerUI 'org.webjars:swagger-ui:3.10.0'
+    compileOnly 'io.swagger:swagger-annotations:1.6.2'
+    //End of Swagger
+
+    compileOnly 'org.openapitools:jackson-databind-nullable:0.2.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+    compileOnly 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}

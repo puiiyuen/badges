@@ -1,0 +1,173 @@
+openapi: 3.0.3
+info:
+  title: Badges
+  description: >-
+    Show your badges on your pages
+
+    ***[@puiiyuen](https://github.com/puiiyuen)***
+  contact:
+    email: patrick.cp97@gmail.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 1.0.0
+externalDocs:
+  description: Read More
+  url: https://badges.peiyuan.ch/docs
+
+servers:
+  - url: http://localhost:8080/
+#  - url: https://badges.peiyuan.ch/api/v1
+
+tags:
+  - name: leetcode
+    description: Leetcode badges
+
+components:
+  schemas:
+    ShieldBadge:
+      description: Shield Badge
+      type: object
+      properties:
+        category:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShieldBadgeLink'
+    ShieldBadgeLink:
+      description: Shield Badge Link Only
+      type: string
+      format: byte
+    LeetCode:
+      description: LeetCode
+      type: object
+      properties:
+        username:
+          type: string
+        ranking:
+          type: integer
+        reputation:
+          type: integer
+        allQuestionsCount:
+          description: All Questions Count
+          type: array
+          items:
+            $ref: '#/components/schemas/LeetCodeAllQuestionsCount'
+        acSubmissionNum:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeetCodeSubmissionNum'
+        totalSubmissionNum:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeetCodeSubmissionNum'
+    LeetCodeSubmissionNum:
+      type: object
+      properties:
+        difficulty:
+          type: string
+        count:
+          type: integer
+        submissions:
+          type: integer
+    LeetCodeAllQuestionsCount:
+      type: object
+      properties:
+        difficulty:
+          type: string
+        count:
+          type: integer
+
+
+paths:
+  /leetcode:
+    get:
+      tags:
+        - leetcode
+      summary: get leetcode user stats
+      description: Retrive user stats
+      operationId: getLeetcodeUserStats
+      parameters:
+        - name: username
+          in: query
+          description: User Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return all user Stats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeetCode'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LeetCode'
+
+  /leetcode/{username}:
+    get:
+      tags:
+        - leetcode
+      summary: get leetcode badges
+      description: Retrive leetcode badges by user id
+      operationId: getLeetcodeBadgesByUsername
+      parameters:
+        - name: username
+          in: path
+          description: User Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return all leetcode badges
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShieldBadge'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShieldBadge'
+
+  /leetcode/{username}/submission:
+    get:
+      tags:
+        - leetcode
+      summary: get leetcode submission badge
+      description: Retrive leetcode submission badge by user id
+      operationId: getLeetcodeBadgeSubmissionByUsername
+      parameters:
+        - name: username
+          in: path
+          description: User Identifier
+          required: true
+          schema:
+            type: string
+        - name: difficulty
+          in: query
+          description: Difficulty of submission
+          schema:
+            type: string
+            default: all
+        - name: accepted
+          in: query
+          description: Distingush Acceped/Total submissions
+          schema:
+            type: boolean
+            default: false
+      responses:
+        200:
+          description: Return submission badge
+          content:
+            image/svg+xml:
+              schema:
+                $ref: '#/components/schemas/ShieldBadgeLink'
+
+
+
+
+
+
+
