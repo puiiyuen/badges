@@ -37,7 +37,7 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     public Optional<ShieldBadge> getAllLeetcodeBadges(@NotNull String username) {
         ShieldBadge shieldBadge = new ShieldBadge();
         shieldBadge.setCategory("LeetCode");
-        shieldBadge.addLinksItem(getLeetcodeBadgeAcceptedProblems(username, "all").get());
+        shieldBadge.addLinksItem(getLeetcodeBadgeSolvedProblems(username, "all").get());
 
         return Optional.empty();
     }
@@ -61,17 +61,19 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeAcceptedProblems(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getLeetcodeBadgeSolvedProblems(@NotNull String username, String difficulty) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
 
             String acProblems = shieldsIoUrl
-                    + "Accepted"
+                    + "Solved"
                     + "-"
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getDifficulty()
                     + " "
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getCount()
+                    + "/"
+                    + leetCode.getAllQuestionsCount().get(leetCodeDifficulty.getOrder()).getCount()
                     + "-"
                     + leetCodeDifficulty.getColor();
 

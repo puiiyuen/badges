@@ -13,7 +13,7 @@ public interface LeetcodeService {
 
     Optional<byte[]> getLeetcodeBadgeAcceptedSubmissions(@NotNull String username, String difficulty);
 
-    Optional<byte[]> getLeetcodeBadgeAcceptedProblems(@NotNull String username, String difficulty);
+    Optional<byte[]> getLeetcodeBadgeSolvedProblems(@NotNull String username, String difficulty);
 
     Optional<byte[]> getLeetCodeBadgeRanking(@NotNull String username);
 
