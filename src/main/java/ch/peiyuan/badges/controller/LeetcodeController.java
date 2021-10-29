@@ -38,7 +38,20 @@ public class LeetcodeController implements LeetcodeApi {
         //        return ResponseEntity.ok("Ok");
     }
 
+    public ResponseEntity<byte[]> getLeetcodeBadgeRankingByUsername(String username) {
+        Optional<byte[]> result = leetcodeService.getLeetCodeBadgeRanking(username);
+        return ResponseEntity.of(result);
+    }
+
+    public ResponseEntity<byte[]> getLeetcodeBadgeProblemByUsername(String username, String difficulty) {
+        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeAcceptedProblems(username, difficulty);
+        return ResponseEntity.of(result);
+//        return ResponseEntity.ok(new byte[0]);
+    }
+
+
     public ResponseEntity<ShieldBadge> getLeetcodeBadgesByUsername(String username) {
+        leetcodeService.getAllLeetcodeBadges(username);
         return ResponseEntity.ok(new ShieldBadge());
     }
 }
