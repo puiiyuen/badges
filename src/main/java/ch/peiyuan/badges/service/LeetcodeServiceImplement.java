@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Optional;
 
 
@@ -21,7 +23,6 @@ public class LeetcodeServiceImplement implements LeetcodeService {
         this.badgeGenerator = badgeGenerator;
         this.leetCodeGenerator = leetCodeGenerator;
     }
-
 
     @Override
     public Optional<LeetCode> getLeetcodeUserStats(@NotNull String username) {
@@ -96,6 +97,32 @@ public class LeetcodeServiceImplement implements LeetcodeService {
                     + leetCodeDifficulty.getColor();
 
             byte[] badge = badgeGenerator.getBadge(acProblems);
+            return Optional.of(badge);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<byte[]> getLeetcodeBadgeAcceptedRate(@NotNull String username, String difficulty) {
+        try {
+            LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
+
+            int acNum = leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
+            int totalNum = leetCode.getTotalSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
+            double acRate = (double) acNum / totalNum * 100;
+            String acceptedRate = shieldsIoUrl
+                    + "Accepted"
+                    + "-"
+                    + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getDifficulty()
+                    + " "
+                    + String.format("%.1f",acRate)
+                    + "%25"
+                    + "-"
+                    + leetCodeDifficulty.getColor();
+            byte[] badge = badgeGenerator.getBadge(acceptedRate);
             return Optional.of(badge);
         } catch (IOException e) {
             e.printStackTrace();

@@ -15,6 +15,8 @@ public interface LeetcodeService {
 
     Optional<byte[]> getLeetcodeBadgeSolvedProblems(@NotNull String username, String difficulty);
 
+    Optional<byte[]> getLeetcodeBadgeAcceptedRate(@NotNull String username, String difficulty);
+
     Optional<byte[]> getLeetcodeBadgeRanking(@NotNull String username);
 
     Optional<byte[]> getLeetcodeBadgeName(@NotNull String username);
