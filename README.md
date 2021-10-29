@@ -1,33 +1,58 @@
 # Badges
 
-## LeetCode
+- [Badges](#badges)
+- [LeetCode](#leetcode)
+  - [Usage](#usage)
+    - [Ranking](#ranking)
+    - [Accepted Problems](#accepted-problems)
+    - [Submissions](#submissions)
 
-### Usage
-``` markdown
-https://badge.peiyuan.ch/leetcode/{username}/{option}<query>
+# LeetCode
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)]()
+
+Generate your own LeetCode badges.
+
+## Usage
+
+### Ranking 
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)]()
+```markdown
+[![](https://badge.peiyuan.ch/leetcode/{username}/ranking)]()
 ```
-| Parameter | Value | Required | Default |
-|:---:|:---:|:---:|:---:|
-| username | LeetCode Username | Yes | N/A |
-| option | [Option Object](#option-object) | Yes | N/A |
-| query | Depends on option | No | Depends on option |
 
-### Option Object
-#### `submission`
+### Accepted Problems
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=easy)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=medium)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=hard)]()
+```markdown
+[![](https://badge.peiyuan.ch/leetcode/{username}/problem?difficulty=<value>)]()
+```
+| Query | Value | Default | Description |
+|:---:|:---:|:---:| --- |
+| difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
+
+### Submissions
+
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=easy)]() 
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=medium)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=hard)]()
+
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=easy)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=medium)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=hard)]()
+
+```markdown
+[![](https://badge.peiyuan.ch/leetcode/{username}/submission?accepted=<value>&difficulty=<value>)]()
+```
+
 | Query | Value | Default | Description |
 |:---:|:---:|:---:| --- |
 | accepted | `true` / `false` | `false` | Accepted Submissions or Total Submissions |
 | difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
 
-#### Sample
-Accepted Submissions
 
-|All|Easy|Medium|Hard|
-|---|---|---|---|
-|[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=easy)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=medium)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=hard)]() |
 
-Total Submissions
-
-|All|Easy|Medium|Hard|
-|---|---|---|---|
-|[![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=easy)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=medium)]() | [![](https://badge.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=hard)]() |
