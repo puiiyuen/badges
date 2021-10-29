@@ -23,7 +23,6 @@ public class LeetcodeController implements LeetcodeApi {
 
     public ResponseEntity<LeetCode> getLeetcodeUserStats(String username) {
         Optional<LeetCode> result = leetcodeService.getLeetcodeUserStats(username);
-//        return ResponseEntity.ok(result.get());
         return ResponseEntity.of(result);
     }
 
@@ -35,20 +34,27 @@ public class LeetcodeController implements LeetcodeApi {
             result = leetcodeService.getLeetcodeBadgeTotalSubmissions(username, difficulty);
         }
         return ResponseEntity.of(result);
-        //        return ResponseEntity.ok("Ok");
     }
 
     public ResponseEntity<byte[]> getLeetcodeBadgeRankingByUsername(String username) {
-        Optional<byte[]> result = leetcodeService.getLeetCodeBadgeRanking(username);
+        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeRanking(username);
         return ResponseEntity.of(result);
     }
 
-    public ResponseEntity<byte[]> getLeetcodeBadgeProblemByUsername(String username, String difficulty) {
-        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeAcceptedProblems(username, difficulty);
+    public ResponseEntity<byte[]> getLeetcodeBadgeSolvedProblemByUsername(String username, String difficulty) {
+        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeSolvedProblems(username, difficulty);
         return ResponseEntity.of(result);
-//        return ResponseEntity.ok(new byte[0]);
     }
 
+    public ResponseEntity<byte[]> getLeetcodeBadgeAcceptedRateByUsername(String username, String difficulty) {
+        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeAcceptedRate(username, difficulty);
+        return ResponseEntity.of(result);
+    }
+
+    public ResponseEntity<byte[]> getLeetcodeBadgeNameByUsername(String username) {
+        Optional<byte[]> result = leetcodeService.getLeetcodeBadgeName(username);
+        return ResponseEntity.of(result);
+    }
 
     public ResponseEntity<ShieldBadge> getLeetcodeBadgesByUsername(String username) {
         leetcodeService.getAllLeetcodeBadges(username);

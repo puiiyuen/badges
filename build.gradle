@@ -3,10 +3,11 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'org.hidetake.swagger.generator' version '2.18.2' //Swagger Generator Plugin for Gradle
+    id 'com.google.cloud.tools.jib' version '3.1.4' // google docker builder
 }
 
 group = 'ch.peiyuan'
-version = '0.1.1-SNAPSHOT'
+version = '0.1.2-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
@@ -30,6 +31,16 @@ sourceSets.main.java.srcDir "${swaggerSources.badges.code.outputDir}/src/main/ja
 sourceSets.main.resources.srcDir "${swaggerSources.badges.code.outputDir}/src/main/resources"
 
 build.dependsOn generateSwaggerUI
+
+jib {
+    to {
+        image = 'puiiyuen/badge'
+        tags = [version]
+    }
+    container {
+        ports = ['8080']
+    }
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'

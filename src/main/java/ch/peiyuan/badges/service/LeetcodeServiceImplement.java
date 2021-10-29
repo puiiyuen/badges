@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Optional;
 
 
@@ -22,7 +24,6 @@ public class LeetcodeServiceImplement implements LeetcodeService {
         this.leetCodeGenerator = leetCodeGenerator;
     }
 
-
     @Override
     public Optional<LeetCode> getLeetcodeUserStats(@NotNull String username) {
         try {
@@ -37,13 +38,31 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     public Optional<ShieldBadge> getAllLeetcodeBadges(@NotNull String username) {
         ShieldBadge shieldBadge = new ShieldBadge();
         shieldBadge.setCategory("LeetCode");
-        shieldBadge.addLinksItem(getLeetcodeBadgeAcceptedProblems(username, "all").get());
+        shieldBadge.addLinksItem(getLeetcodeBadgeSolvedProblems(username, "all").get());
 
         return Optional.empty();
     }
 
     @Override
-    public Optional<byte[]> getLeetCodeBadgeRanking(@NotNull String username) {
+    public Optional<byte[]> getLeetcodeBadgeName(@NotNull String username) {
+        try {
+            LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            String name = shieldsIoUrl
+                    + "LeetCode"
+                    + "-"
+                    + leetCode.getUsername()
+                    + "-"
+                    + "orange";
+            byte[] badge = badgeGenerator.getBadge(name);
+            return Optional.of(badge);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<byte[]> getLeetcodeBadgeRanking(@NotNull String username) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             String ranking = shieldsIoUrl
@@ -61,21 +80,49 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeAcceptedProblems(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getLeetcodeBadgeSolvedProblems(@NotNull String username, String difficulty) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
 
             String acProblems = shieldsIoUrl
-                    + "Accepted"
+                    + "Solved"
                     + "-"
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getDifficulty()
                     + " "
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getCount()
+                    + "/"
+                    + leetCode.getAllQuestionsCount().get(leetCodeDifficulty.getOrder()).getCount()
                     + "-"
                     + leetCodeDifficulty.getColor();
 
             byte[] badge = badgeGenerator.getBadge(acProblems);
+            return Optional.of(badge);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<byte[]> getLeetcodeBadgeAcceptedRate(@NotNull String username, String difficulty) {
+        try {
+            LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
+
+            int acNum = leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
+            int totalNum = leetCode.getTotalSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
+            double acRate = (double) acNum / totalNum * 100;
+            String acceptedRate = shieldsIoUrl
+                    + "Accepted"
+                    + "-"
+                    + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getDifficulty()
+                    + " "
+                    + String.format("%.1f",acRate)
+                    + "%25"
+                    + "-"
+                    + leetCodeDifficulty.getColor();
+            byte[] badge = badgeGenerator.getBadge(acceptedRate);
             return Optional.of(badge);
         } catch (IOException e) {
             e.printStackTrace();
