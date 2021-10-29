@@ -213,6 +213,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ShieldBadgeSvg'
 
+  /leetcode/{username}/name:
+    get:
+      tags:
+        - leetcode
+      summary: Get LeetCode User's name / real name
+      description: Retrive name badge by username
+      operationId: getLeetcodeBadgeNameByUsername
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return name badge
+          content:
+            image/svg+xml:
+              schema:
+                $ref: '#/components/schemas/ShieldBadgeSvg'
+
 
 
 

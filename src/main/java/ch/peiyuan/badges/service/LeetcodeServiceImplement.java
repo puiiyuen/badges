@@ -43,7 +43,25 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetCodeBadgeRanking(@NotNull String username) {
+    public Optional<byte[]> getLeetcodeBadgeName(@NotNull String username) {
+        try {
+            LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            String name = shieldsIoUrl
+                    + "LeetCode"
+                    + "-"
+                    + leetCode.getUsername()
+                    + "-"
+                    + "orange";
+            byte[] badge = badgeGenerator.getBadge(name);
+            return Optional.of(badge);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<byte[]> getLeetcodeBadgeRanking(@NotNull String username) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             String ranking = shieldsIoUrl
