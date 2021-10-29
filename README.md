@@ -3,17 +3,26 @@
 - [Badges](#badges)
 - [LeetCode](#leetcode)
   - [Usage](#usage)
+    - [Name](#name)
     - [Ranking](#ranking)
-    - [Accepted Problems](#accepted-problems)
+    - [Accepted Rate](#accepted-rate)
+    - [Solved Problems](#solved-problems)
     - [Submissions](#submissions)
 
 # LeetCode
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)]()
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/name)](https://leetcode.com/puiiyuen)
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)](https://leetcode.com/puiiyuen)
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)](https://leetcode.com/puiiyuen)
 
 Generate your own LeetCode badges.
 
 ## Usage
+
+### Name
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/name)]()
+```markdown
+[![](https://badge.peiyuan.ch/leetcode/{username}/name)]()
+```
 
 ### Ranking 
 [![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)]()
@@ -21,13 +30,22 @@ Generate your own LeetCode badges.
 [![](https://badge.peiyuan.ch/leetcode/{username}/ranking)]()
 ```
 
-### Accepted Problems
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)]()
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=easy)]()
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=medium)]()
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem?difficulty=hard)]()
+### Accepted Rate
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/rate)]()
 ```markdown
-[![](https://badge.peiyuan.ch/leetcode/{username}/problem?difficulty=<value>)]()
+[![](https://badge.peiyuan.ch/leetcode/{username}/rate?difficulty=<value>)]()
+```
+| Query | Value | Default | Description |
+|:---:|:---:|:---:| --- |
+| difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
+
+### Solved Problems
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/solved)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=easy)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=medium)]()
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=hard)]()
+```markdown
+[![](https://badge.peiyuan.ch/leetcode/{username}/solved?difficulty=<value>)]()
 ```
 | Query | Value | Default | Description |
 |:---:|:---:|:---:| --- |
