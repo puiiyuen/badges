@@ -34,9 +34,9 @@ components:
         links:
           type: array
           items:
-            $ref: '#/components/schemas/ShieldBadgeLink'
-    ShieldBadgeLink:
-      description: Shield Badge Link Only
+            $ref: '#/components/schemas/ShieldBadgeSvg'
+    ShieldBadgeSvg:
+      description: Shield Badge SVG Only
       type: string
       format: byte
     LeetCode:
@@ -136,7 +136,7 @@ paths:
       tags:
         - leetcode
       summary: get leetcode submission badge
-      description: Retrive leetcode submission badge by user id
+      description: Retrive leetcode submission badge by username
       operationId: getLeetcodeBadgeSubmissionByUsername
       parameters:
         - name: username
@@ -163,7 +163,55 @@ paths:
           content:
             image/svg+xml:
               schema:
-                $ref: '#/components/schemas/ShieldBadgeLink'
+                $ref: '#/components/schemas/ShieldBadgeSvg'
+
+  /leetcode/{username}/problem:
+    get:
+      tags:
+        - leetcode
+      summary: get leetcode accepted problem badge
+      description: Retrive badge by username
+      operationId: getLeetcodeBadgeProblemByUsername
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: difficulty
+          in: query
+          required: false
+          schema:
+            type: string
+            default: all
+      responses:
+        200:
+          description: Return accepted problem badge
+          content:
+            image/svg+xml:
+              schema:
+                $ref: '#/components/schemas/ShieldBadgeSvg'
+
+  /leetcode/{username}/ranking:
+    get:
+      tags:
+        - leetcode
+      summary: Get Leetcode Ranking
+      description: Retrive ranking badge by username
+      operationId: getLeetcodeBadgeRankingByUsername
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return ranking badge
+          content:
+            image/svg+xml:
+              schema:
+                $ref: '#/components/schemas/ShieldBadgeSvg'
 
 
 
