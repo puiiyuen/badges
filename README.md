@@ -1,6 +1,5 @@
-# Badges
+# Badges <!-- omit in toc -->
 
-- [Badges](#badges)
 - [LeetCode](#leetcode)
   - [Usage](#usage)
     - [Name](#name)
