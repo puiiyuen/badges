@@ -1,6 +1,5 @@
-# Badges
+# Badges <!-- omit in toc -->
 
-- [Badges](#badges)
 - [LeetCode](#leetcode)
   - [Usage](#usage)
     - [Name](#name)
@@ -12,7 +11,7 @@
 # LeetCode
 [![](https://badge.peiyuan.ch/leetcode/puiiyuen/name)](https://leetcode.com/puiiyuen)
 [![](https://badge.peiyuan.ch/leetcode/puiiyuen/ranking)](https://leetcode.com/puiiyuen)
-[![](https://badge.peiyuan.ch/leetcode/puiiyuen/problem)](https://leetcode.com/puiiyuen)
+[![](https://badge.peiyuan.ch/leetcode/puiiyuen/solved)](https://leetcode.com/puiiyuen)
 
 Generate your own LeetCode badges.
 
