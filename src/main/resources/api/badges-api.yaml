@@ -17,7 +17,7 @@ externalDocs:
 
 servers:
   - url: http://localhost:8080/
-#  - url: https://badges.peiyuan.ch/api/v1
+  - url: https://badges.peiyuan.ch/
 
 tags:
   - name: leetcode
@@ -78,6 +78,28 @@ components:
           type: string
         count:
           type: integer
+    ShieldParams:
+      type: object
+      properties:
+        style:
+          type: string
+        label:
+          type: string
+        labelColor:
+          type: string
+        color:
+          type: string
+        logo:
+          type: string
+        logoColor:
+          type: string
+        logoWidth:
+          type: string
+        link:
+          type: array
+          items:
+            type: string
+
 
 
 paths:
@@ -112,7 +134,7 @@ paths:
         - leetcode
       summary: get leetcode badges
       description: Retrive leetcode badges by user id
-      operationId: getLeetcodeBadgesByUsername
+      operationId: getAllLeetcodeBadgesByUsername
       parameters:
         - name: username
           in: path
@@ -120,6 +142,11 @@ paths:
           required: true
           schema:
             type: string
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return all leetcode badges
@@ -157,6 +184,11 @@ paths:
           schema:
             type: boolean
             default: false
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return submission badge
@@ -183,6 +215,11 @@ paths:
           schema:
             type: string
             default: all
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return accepted problem badge
@@ -204,6 +241,11 @@ paths:
           required: true
           schema:
             type: string
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return ranking badge
@@ -230,6 +272,11 @@ paths:
           schema:
             type: string
             default: all
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return accepted rate badge
@@ -251,6 +298,11 @@ paths:
           required: true
           schema:
             type: string
+        - name: shieldParams
+          in: query
+          description: Other Shield Parameters
+          schema:
+            $ref: '#/components/schemas/ShieldParams'
       responses:
         200:
           description: Return name badge

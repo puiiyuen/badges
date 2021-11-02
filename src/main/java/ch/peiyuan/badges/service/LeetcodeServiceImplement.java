@@ -3,12 +3,11 @@ package ch.peiyuan.badges.service;
 import ch.peiyuan.badges.enums.LeetCodeDifficulty;
 import ch.peiyuan.badges.model.LeetCode;
 import ch.peiyuan.badges.model.ShieldBadge;
+import ch.peiyuan.badges.model.ShieldParams;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Optional;
 
 
@@ -25,7 +24,7 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<LeetCode> getLeetcodeUserStats(@NotNull String username) {
+    public Optional<LeetCode> getUserStats(@NotNull String username) {
         try {
             return Optional.of(leetCodeGenerator.getLeetCodeUser(username));
         } catch (Exception e) {
@@ -35,24 +34,27 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<ShieldBadge> getAllLeetcodeBadges(@NotNull String username) {
+    public Optional<ShieldBadge> getAllBadges(@NotNull String username, ShieldParams shieldParams) {
         ShieldBadge shieldBadge = new ShieldBadge();
         shieldBadge.setCategory("LeetCode");
-        shieldBadge.addLinksItem(getLeetcodeBadgeSolvedProblems(username, "all").get());
+//        shieldBadge.addLinksItem(getBadgeSolvedProblems(username, "all", shieldParams).get());
 
         return Optional.empty();
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeName(@NotNull String username) {
+    public Optional<byte[]> getBadgeName(@NotNull String username, ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
             String name = shieldsIoUrl
                     + "LeetCode"
                     + "-"
                     + leetCode.getUsername()
                     + "-"
-                    + "orange";
+                    + "orange"
+                    + "?"
+                    + shieldParamsExt;
             byte[] badge = badgeGenerator.getBadge(name);
             return Optional.of(badge);
         } catch (Exception e) {
@@ -62,15 +64,18 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeRanking(@NotNull String username) {
+    public Optional<byte[]> getBadgeRanking(@NotNull String username, ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
             String ranking = shieldsIoUrl
                     + "Ranking"
                     + "-"
                     + leetCode.getRanking()
                     + "-"
-                    + "orange";
+                    + "orange"
+                    + "?"
+                    + shieldParamsExt;
             byte[] badge = badgeGenerator.getBadge(ranking);
             return Optional.of(badge);
         } catch (IOException e) {
@@ -80,11 +85,12 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeSolvedProblems(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getBadgeSolvedProblems(@NotNull String username, String difficulty,
+                                                   ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
-
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
             String acProblems = shieldsIoUrl
                     + "Solved"
                     + "-"
@@ -94,7 +100,9 @@ public class LeetcodeServiceImplement implements LeetcodeService {
                     + "/"
                     + leetCode.getAllQuestionsCount().get(leetCodeDifficulty.getOrder()).getCount()
                     + "-"
-                    + leetCodeDifficulty.getColor();
+                    + leetCodeDifficulty.getColor()
+                    + "?"
+                    + shieldParamsExt;
 
             byte[] badge = badgeGenerator.getBadge(acProblems);
             return Optional.of(badge);
@@ -105,10 +113,12 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeAcceptedRate(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getBadgeAcceptedRate(@NotNull String username, String difficulty,
+                                                 ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
 
             int acNum = leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
             int totalNum = leetCode.getTotalSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions();
@@ -118,10 +128,12 @@ public class LeetcodeServiceImplement implements LeetcodeService {
                     + "-"
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getDifficulty()
                     + " "
-                    + String.format("%.1f",acRate)
+                    + String.format("%.1f", acRate)
                     + "%25"
                     + "-"
-                    + leetCodeDifficulty.getColor();
+                    + leetCodeDifficulty.getColor()
+                    + "?"
+                    + shieldParamsExt;
             byte[] badge = badgeGenerator.getBadge(acceptedRate);
             return Optional.of(badge);
         } catch (IOException e) {
@@ -131,9 +143,11 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeAcceptedSubmissions(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getBadgeAcceptedSubmissions(@NotNull String username, String difficulty,
+                                                        ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
 
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
 
@@ -144,7 +158,9 @@ public class LeetcodeServiceImplement implements LeetcodeService {
                     + " "
                     + leetCode.getAcSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions()
                     + "-"
-                    + leetCodeDifficulty.getColor();
+                    + leetCodeDifficulty.getColor()
+                    + "?"
+                    + shieldParamsExt;
 
             byte[] badge = badgeGenerator.getBadge(acSubmissions);
             return Optional.of(badge);
@@ -156,10 +172,11 @@ public class LeetcodeServiceImplement implements LeetcodeService {
     }
 
     @Override
-    public Optional<byte[]> getLeetcodeBadgeTotalSubmissions(@NotNull String username, String difficulty) {
+    public Optional<byte[]> getBadgeTotalSubmissions(@NotNull String username, String difficulty,
+                                                     ShieldParams shieldParams) {
         try {
             LeetCode leetCode = leetCodeGenerator.getLeetCodeUser(username);
-
+            ShieldParams shieldParamsExt = new ShieldParamsImplement(shieldParams);
             LeetCodeDifficulty leetCodeDifficulty = getLeetCodeDifficulty(difficulty);
 
             String totalSubmissions = shieldsIoUrl
@@ -169,7 +186,9 @@ public class LeetcodeServiceImplement implements LeetcodeService {
                     + " "
                     + leetCode.getTotalSubmissionNum().get(leetCodeDifficulty.getOrder()).getSubmissions()
                     + "-"
-                    + leetCodeDifficulty.getColor();
+                    + leetCodeDifficulty.getColor()
+                    + "?"
+                    + shieldParamsExt;
 
             byte[] badge = badgeGenerator.getBadge(totalSubmissions);
             return Optional.of(badge);
@@ -192,5 +211,53 @@ public class LeetcodeServiceImplement implements LeetcodeService {
         }
     }
 
+}
 
+class ShieldParamsImplement extends ShieldParams {
+
+    private final ShieldParams shieldParams;
+
+    ShieldParamsImplement(ShieldParams shieldParams) {
+        this.shieldParams = shieldParams;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (shieldParams.getStyle() != null) {
+            sb.append("&style=");
+            sb.append(shieldParams.getStyle());
+        }
+        if (shieldParams.getLabel() != null) {
+            sb.append("&label=");
+            sb.append(shieldParams.getLabel());
+        }
+        if (shieldParams.getLabelColor() != null) {
+            sb.append("&labelColor=");
+            sb.append(shieldParams.getLabelColor());
+        }
+        if (shieldParams.getColor() != null) {
+            sb.append("&color=");
+            sb.append(shieldParams.getColor());
+        }
+        if (shieldParams.getLogo() != null) {
+            sb.append("&logo=");
+            sb.append(shieldParams.getLogo());
+        }
+        if (shieldParams.getLogoColor() != null) {
+            sb.append("&logoColor=");
+            sb.append(shieldParams.getLogoColor());
+        }
+        if (shieldParams.getLogoWidth() != null) {
+            sb.append("&logoWidth=");
+            sb.append(shieldParams.getLogoWidth());
+        }
+        if (shieldParams.getLink() != null) {
+            for (String link : shieldParams.getLink()) {
+                sb.append("&link=");
+                sb.append(link);
+            }
+        }
+        return sb.toString();
+    }
 }
