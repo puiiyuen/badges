@@ -18,6 +18,8 @@ window.swaggerSpec={
   },
   "servers" : [ {
     "url" : "http://localhost:8080/"
+  }, {
+    "url" : "https://badges.peiyuan.ch/"
   } ],
   "tags" : [ {
     "name" : "leetcode",
@@ -128,9 +130,6 @@ window.swaggerSpec={
           "logoWidth" : {
             "type" : "string"
           },
-          "cacheSeconds" : {
-            "type" : "string"
-          },
           "link" : {
             "type" : "array",
             "items" : {
@@ -181,7 +180,7 @@ window.swaggerSpec={
         "tags" : [ "leetcode" ],
         "summary" : "get leetcode badges",
         "description" : "Retrive leetcode badges by user id",
-        "operationId" : "getLeetcodeBadgesByUsername",
+        "operationId" : "getAllLeetcodeBadgesByUsername",
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
