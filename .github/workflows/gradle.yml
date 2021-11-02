@@ -26,3 +26,6 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Push to Docker w/jib
+      run: ./gradlew jib -P jib.to.auth.username=$DOCKER_USERNAME -P jib.to.auth.password=$DOCKER_PWD jib
