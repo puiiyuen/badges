@@ -27,5 +27,3 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Push to Docker w/jib
-      run: ./gradlew jib -D jib.to.auth.username=${{ secrets.DOCKER_USERNAME }} -D jib.to.auth.password=${{ secrets.DOCKER_PWD }} jib
