@@ -6,7 +6,7 @@ name: Push to docker.io with jib
 on:
   push: 
     branches:
-      - deploy
+      - delivery
   
 jobs:
   deploy:
