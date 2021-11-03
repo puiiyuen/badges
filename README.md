@@ -5,7 +5,6 @@
 [![](https://img.shields.io/github/license/puiiyuen/badges)]()
 
 - [LeetCode](#leetcode)
-- [Usage](#usage)
   - [Name](#name)
   - [Ranking](#ranking)
   - [Accepted Rate](#accepted-rate)
@@ -25,8 +24,6 @@
 
 [![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?label=puiiyuen&logo=leetcode)](https://leetcode.com/puiiyuen)
 [![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved)](https://leetcode.com/puiiyuen)
-
-## Usage
 
 ### Name
 
@@ -149,7 +146,7 @@ java -jar badges-{version}.jar
 
 ### Docker Image
 
-### [From Docker Hub Registry](https://hub.docker.com)
+***[From Docker Hub Registry](https://hub.docker.com)***
 
 [![](https://img.shields.io/docker/image-size/puiiyuen/badge)]()
 
@@ -157,7 +154,7 @@ java -jar badges-{version}.jar
 docker run -d -p 8080:8080 puiiyuen/badge
 ```
 
-### Build Your Own Image
+***Build Your Own Image***
 
 ***Use [Google Jib](https://github.com/GoogleContainerTools/jib)***  
 In `build.gradle`, configure your own parameters:
