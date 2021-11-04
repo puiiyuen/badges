@@ -4,7 +4,6 @@ plugins {
     id 'java'
     id 'org.hidetake.swagger.generator' version '2.18.2' //Swagger Generator Plugin for Gradle
     id 'com.google.cloud.tools.jib' version '3.1.4' // google docker builder
-    id 'maven-publish'
 }
 
 group = 'ch.peiyuan'
