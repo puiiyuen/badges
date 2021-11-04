@@ -15,8 +15,6 @@
 - [Host Your Own](#host-your-own)
   - [Jar Package](#jar-package)
   - [Docker Image](#docker-image)
-  - [From Docker Hub Registry](#from-docker-hub-registry)
-  - [Build Your Own Image](#build-your-own-image)
 - [To-do](#to-do)
 - [License](#license)
 
@@ -188,7 +186,7 @@ to [Google Jib Gradle Plugin](https://github.com/GoogleContainerTools/jib/blob/m
 
 ## To-do
 
-*Currently, no idea :D*
+- [ ] Handle Exception
 
 ## License
 
