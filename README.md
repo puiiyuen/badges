@@ -3,7 +3,7 @@
 *Some badges generated with [Shields.io](https://shields.io)*
 
 ![GitHub](https://img.shields.io/github/license/puiiyuen/badges)
-![GitHub](https://img.shields.io/github/workflow/status/puiiyuen/badges/Java%20CI%20with%20Gradle?logo=github)
+![GitHub](https://img.shields.io/github/actions/workflow/status/puiiyuen/badges/cd.yaml?logo=github)
 
 - [LeetCode](#leetcode)
   - [Name](#name)
