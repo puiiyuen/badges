@@ -1,7 +1,0 @@
-{
-  "library": "spring-mvc",
-  "dateLibrary": "java8",
-  "modelPackage": "ch.peiyuan.badges.model",
-  "apiPackage": "ch.peiyuan.badges.api",
-  "invokerPackage": "ch.peiyuan.badges"
-}
