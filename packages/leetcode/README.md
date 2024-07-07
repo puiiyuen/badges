@@ -1,193 +1,118 @@
-# Badges <!-- omit in toc -->
+## LeetCode Badges
 
-*Some badges generated with [Shields.io](https://shields.io)*
-
-![GitHub](https://img.shields.io/github/license/puiiyuen/badges)
 ![GitHub](https://img.shields.io/github/actions/workflow/status/puiiyuen/badges/cd.yaml?logo=github)
 
-- [LeetCode](#leetcode)
-  - [Name](#name)
-  - [Ranking](#ranking)
-  - [Accepted Rate](#accepted-rate)
-  - [Solved Problems](#solved-problems)
-  - [Submissions](#submissions)
-  - [Customize Style](#customize-style)
+_Show your awesome LeetCode badges._
+
+[![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?label=puiiyuen&logo=leetcode)](https://leetcode.com/puiiyuen)
+[![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/solvedProblems)](https://leetcode.com/puiiyuen)
+
+- [Name](#name)
+- [Ranking](#ranking)
+- [Accepted Rate](#accepted-rate)
+- [Solved Problems](#solved-problems)
+- [Submissions](#submissions)
+- [Customize Style](#customize-style)
 - [Host Your Own](#host-your-own)
-  - [Jar Package](#jar-package)
-  - [Docker Image](#docker-image)
-- [To-do](#to-do)
 - [License](#license)
-
-## LeetCode
-*Show your awesome LeetCode badges.*
-
-[![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?label=puiiyuen&logo=leetcode)](https://leetcode.com/puiiyuen)
-[![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved)](https://leetcode.com/puiiyuen)
 
 ### Name
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/name)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/{username}/name
+https://badges.peiyuan.ch/v2/leetcode/{username}
 ```
 
 ### Ranking
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/{username}/ranking
+https://badges.peiyuan.ch/v2/leetcode/{username}/ranking
 ```
 
 ### Accepted Rate
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/rate)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/rate?difficulty=easy)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/rate?difficulty=medium)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/rate?difficulty=hard)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/rates)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/rates?difficulty=Easy)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/rates?difficulty=Medium)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/rates?difficulty=Hard)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/{username}/rate?difficulty=<value>
+https://badges.peiyuan.ch/v2/leetcode/{username}/rates?difficulty=<value>
 ```
 
-| Query | Value | Default | Description |
-|:---:|:---:|:---:| --- |
-| difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
+|   Query    |               Value                | Default | Description                           |
+| :--------: | :--------------------------------: | :-----: | ------------------------------------- |
+| difficulty | `All` / `Easy` / `Medium` / `Hard` |  `All`  | Identity the submission of difficulty |
 
 ### Solved Problems
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=easy)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=medium)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/solved?difficulty=hard)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/solvedProblems)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/solvedProblems?difficulty=Easy)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/solvedProblems?difficulty=Medium)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/solvedProblems?difficulty=Hard)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/{username}/solved?difficulty=<value>
+https://badges.peiyuan.ch/v2/leetcode/{username}/solvedProblems?difficulty=<value>
 ```
 
-| Query | Value | Default | Description |
-|:---:|:---:|:---:| --- |
-| difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
+|   Query    |               Value                | Default | Description                           |
+| :--------: | :--------------------------------: | :-----: | ------------------------------------- |
+| difficulty | `All` / `Easy` / `Medium` / `Hard` |  `All`  | Identity the submission of difficulty |
 
 ### Submissions
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=easy)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=medium)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?accepted=true&difficulty=hard)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?accepted=true)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?accepted=true&difficulty=Easy)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?accepted=true&difficulty=Medium)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?accepted=true&difficulty=Hard)
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=easy)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=medium)
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/submission?difficulty=hard)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?difficulty=Easy)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?difficulty=Medium)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/submissions?difficulty=Hard)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/{username}/submission?accepted=<value>&difficulty=<value>
+https://badges.peiyuan.ch/v2/leetcode/{username}/submissions?accepted=<value>&difficulty=<value>
 ```
 
-| Query | Value | Default | Description |
-|:---:|:---:|:---:| --- |
-| accepted | `true` / `false` | `false` | Accepted Submissions or Total Submissions |
-| difficulty | `all` / `easy` / `medium` / `hard` | `all` | Identity the submission of difficulty
+|   Query    |               Value                | Default | Description                               |
+| :--------: | :--------------------------------: | :-----: | ----------------------------------------- |
+|  accepted  |          `true` / `false`          | `false` | Accepted Submissions or Total Submissions |
+| difficulty | `All` / `Easy` / `Medium` / `Hard` |  `All`  | Identity the submission of difficulty     |
 
 ### Customize Style
 
 Since the all badges are generated by [Shields.io](https://shields.io), most of shied query parameters are supported as
 well:
 
-![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?logo=leetcode&label=puiiyuen&style=for-the-badge&color=green)
+![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?logo=leetcode&label=puiiyuen&style=for-the-badge&color=green)
 
 ```markdown
-https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?logo=leetcode&label=puiiyuen&style=for-the-badge&color=green
+https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?logo=leetcode&label=puiiyuen&style=for-the-badge&color=green
 ```
 
-| Parameter | Support | Demo |
-|:---:|:---:|:---:|
-| style | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/name?style=for-the-badge) |
-| label | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?label=puiiyuen) |
-| labelColor | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/name?labelColor=black) |
-| color | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/name?color=blue) |
-| logo | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?logo=leetcode) |
-| logoColor | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?logo=leetcode&logoColor=white) |
-| logoWidth | Yes | ![](https://badges.peiyuan.ch/leetcode/puiiyuen/ranking?logo=leetcode&logoWidth=40) |
-| link | Yes* | N/A on GitHub README |
-| cacheSeconds | No | N/A |
+|  Parameter   | Support |                                           Demo                                            |
+| :----------: | :-----: | :---------------------------------------------------------------------------------------: |
+|    style     |   Yes   |          ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen?style=for-the-badge)          |
+|    label     |   Yes   |        ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?label=puiiyuen)         |
+|  labelColor  |   Yes   |           ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen?labelColor=black)            |
+|    color     |   Yes   |              ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen?color=blue)               |
+|     logo     |   Yes   |         ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?logo=leetcode)         |
+|  logoColor   |   Yes   | ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?logo=leetcode&logoColor=white) |
+|  logoWidth   |   Yes   |  ![](https://badges.peiyuan.ch/v2/leetcode/puiiyuen/ranking?logo=leetcode&logoWidth=40)   |
+|     link     |  Yes\*  |                                   N/A on GitHub README                                    |
+| cacheSeconds |   No    |                                            N/A                                            |
 
-* *Refer to [Shields.io](https://shields.io): Specify what clicking on the left/right of a badge should do. Note that
-  this only works when integrating your badge in an `<object>` HTML tag, but not an `<img>` tag or a markup language.*
+- _Refer to [Shields.io](https://shields.io): Specify what clicking on the left/right of a badge should do. Note that
+  this only works when integrating your badge in an `<object>` HTML tag, but not an `<img>` tag or a markup language._
 
 ## Host Your Own
 
-JDK Version 11  |  [API Documentations](https://puiiyuen.github.io/badges)
-
-### Jar Package
-
-***Build the package***
-
-```shell
-./gradlew clean build
-```
-
-***Run jar package***  
-Directory:
-
-```text
-.
-└── build
-    └── libs
-        └── badges-{version}.jar
-```
-
-```shell
-java -jar badges-{version}.jar
-```
-
-### Docker Image
-
-***[From Docker Hub Registry](https://hub.docker.com)***
-
-![](https://img.shields.io/docker/image-size/puiiyuen/badge)
-
-```shell
-docker run -d -p 8080:8080 puiiyuen/badge
-```
-
-***Build Your Own Image***
-
-***Use [Google Jib](https://github.com/GoogleContainerTools/jib)***  
-In `build.gradle`, configure your own parameters:
-
-```text
-jib {
-    to {
-        image = '{username}/{repository}'
-    }
-    container {
-        ports = ['8080']
-    }
-}
-```
-
-*Run:*
-
-```shell
-./gralew jib
-```
-
-The docker image will be built and pushed to your remote registry. For more configurations, please refer
-to [Google Jib Gradle Plugin](https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin)
-
-***Build with `Dockerfile`***  
-*Ref:*
-
-1. [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker/)
-2. [Build your Java image](https://docs.docker.com/language/java/build-images/)
-
-## To-do
-
-- [ ] Handle Exception
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/puiiyuen/badges)
 
 ## License
 
-MIT
+![GitHub](https://img.shields.io/github/license/puiiyuen/badges)
