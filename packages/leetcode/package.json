@@ -1,7 +1,6 @@
 {
   "name": "@puiiyuen/leetcode-badges",
-  "version": "0.0.0",
-  "private": true,
+  "version": "2.0.0",
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
