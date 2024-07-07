@@ -10,8 +10,8 @@ export class Submissions extends OpenAPIRoute {
     request: {
       query: z.object({
         difficulty: Enumeration({
-          values: difficulties,
-          default: 'All',
+          values: difficulties.map((difficulty) => difficulty.toLowerCase()),
+          default: 'all',
         }),
         accepted: Bool({
           default: false,
@@ -40,7 +40,11 @@ export class Submissions extends OpenAPIRoute {
     const data = await this.getValidatedData<typeof this.schema>()
     const { username } = data.params
     const { difficulty, accepted } = data.query
-    const shield = await submissionsBadge(username, difficulty, accepted)
+    const shield = await submissionsBadge(
+      username,
+      difficulty[0].toUpperCase() + difficulty.slice(1),
+      accepted
+    )
     return new Response(shield, {
       headers: {
         'content-type': 'image/svg+xml',

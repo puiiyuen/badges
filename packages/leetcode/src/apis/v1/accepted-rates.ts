@@ -10,8 +10,8 @@ export class AcceptedRate extends OpenAPIRoute {
     request: {
       query: z.object({
         difficulty: Enumeration({
-          values: difficulties,
-          default: 'All',
+          values: difficulties.map((difficulty) => difficulty.toLowerCase()),
+          default: 'all',
         }),
       }),
       params: z.object({
@@ -36,7 +36,10 @@ export class AcceptedRate extends OpenAPIRoute {
     const data = await this.getValidatedData<typeof this.schema>()
     const { username } = data.params
     const { difficulty } = data.query
-    const shield = await acceptedRatesBadge(username, difficulty)
+    const shield = await acceptedRatesBadge(
+      username,
+      difficulty[0].toUpperCase() + difficulty.slice(1)
+    )
     return new Response(shield, {
       headers: {
         'content-type': 'image/svg+xml',
