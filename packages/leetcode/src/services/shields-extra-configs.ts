@@ -19,7 +19,7 @@ export const shieldExtraConfigsToQueryParams = (
     shieldExtraConfigs.label &&
       queryParamsArray.push(`label=${shieldExtraConfigs.label}`)
     shieldExtraConfigs.labelColor &&
-      queryParamsArray.push(`labelColor${shieldExtraConfigs.labelColor}`)
+      queryParamsArray.push(`labelColor=${shieldExtraConfigs.labelColor}`)
     shieldExtraConfigs.color &&
       queryParamsArray.push(`color=${shieldExtraConfigs.color}`)
     shieldExtraConfigs.logo &&

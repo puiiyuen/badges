@@ -25,7 +25,7 @@ export const difficultiesParamV1 = z.object({
 export const shieldExtraConfigsParams = z.object({
   style: Str({ required: false }),
   label: Str({ required: false }),
-  lablelColor: Str({ required: false }),
+  labelColor: Str({ required: false }),
   color: Str({ required: false }),
   logo: Str({ required: false }),
   logoColor: Str({ required: false }),
