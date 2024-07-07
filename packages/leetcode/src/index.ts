@@ -19,7 +19,7 @@ import {
 const app = new Hono()
 
 const openapi = fromHono(app, {
-  docs_url: '/docs/leetcode',
+  docs_url: '/docs',
 })
 
 // v2 Apis
