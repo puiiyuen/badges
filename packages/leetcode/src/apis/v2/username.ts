@@ -1,34 +1,29 @@
-import { OpenAPIRoute, Str } from 'chanfana'
-import { z } from 'zod'
+import { OpenAPIRoute } from 'chanfana'
 
 import { usernameBadge } from '../../services/username'
+import {
+  shieldExtraConfigsParams,
+  successfulResponse,
+  usernameParam,
+} from '../common'
 
 export class Username extends OpenAPIRoute {
   schema = {
     tags: ['LeetCode'],
     request: {
-      params: z.object({
-        username: Str({
-          required: true,
-        }),
-      }),
+      params: usernameParam,
+      query: shieldExtraConfigsParams,
     },
     responses: {
-      200: {
-        description: 'Successful Response',
-        content: {
-          'img/svg+xml': {
-            schema: Str(),
-          },
-        },
-      },
+      200: successfulResponse,
     },
   }
 
   async handle() {
     const data = await this.getValidatedData<typeof this.schema>()
     const { username } = data.params
-    const shield = await usernameBadge(username)
+    const { ...shieldExtraConfigs } = data.query
+    const shield = await usernameBadge(username, shieldExtraConfigs)
     return new Response(shield, {
       headers: {
         'content-type': 'image/svg+xml',

@@ -3,6 +3,10 @@ import { type Format } from 'badge-maker'
 import { QuestionCount, SubmissionStats } from '../adapters/leetcode'
 import { difficultyConfigs } from './common'
 import { ShieldBuilder } from './shields'
+import {
+  shieldExtraConfigsToQueryParams,
+  ShieldsExtraConfigs,
+} from './shields-extra-configs'
 
 const solvedProblemsFormat = (
   acSubmissionNum: SubmissionStats,
@@ -19,7 +23,8 @@ const solvedProblemsFormat = (
 
 export const solvedProblemsBadge = async (
   username: string,
-  difficulty: SubmissionStats['difficulty']
+  difficulty: SubmissionStats['difficulty'],
+  shieldsExtraConfigs?: Partial<ShieldsExtraConfigs>
 ): Promise<string> => {
   const shieldBuilder = new ShieldBuilder()
   return shieldBuilder.build(username, (leetCodeUser) => {
@@ -27,6 +32,9 @@ export const solvedProblemsBadge = async (
       leetCodeUser.acSubmissionNum[difficultyConfigs[difficulty].position]
     const questionsCount =
       leetCodeUser.allQuestionsCount[difficultyConfigs[difficulty].position]
-    return solvedProblemsFormat(acSubmissionNum, questionsCount)
+    return (
+      solvedProblemsFormat(acSubmissionNum, questionsCount) +
+      shieldExtraConfigsToQueryParams(shieldsExtraConfigs)
+    )
   })
 }

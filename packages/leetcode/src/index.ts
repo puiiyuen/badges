@@ -25,8 +25,8 @@ const openapi = fromHono(app, {
 // v2 Apis
 openapi.get('/v2/leetcode/:username', Username)
 openapi.get('/v2/leetcode/:username/ranking', Ranking)
-openapi.get('/v2/leetcode/:username/rate', AcceptedRate)
-openapi.get('/v2/leetcode/:username/solved', SolvedProblems)
+openapi.get('/v2/leetcode/:username/rates', AcceptedRate)
+openapi.get('/v2/leetcode/:username/solvedProblems', SolvedProblems)
 openapi.get('/v2/leetcode/:username/submissions', Submissions)
 
 // Legacy v1 apis

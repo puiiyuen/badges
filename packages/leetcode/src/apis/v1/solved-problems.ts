@@ -1,44 +1,37 @@
-import { Enumeration, OpenAPIRoute, Str } from 'chanfana'
+import { OpenAPIRoute } from 'chanfana'
 import { z } from 'zod'
 
-import { difficulties } from '../../adapters/leetcode'
 import { solvedProblemsBadge } from '../../services/solved-problems'
+import {
+  difficultiesParamV1,
+  shieldExtraConfigsParams,
+  successfulResponse,
+  usernameParam,
+} from '../common'
 
 export class SolvedProblems extends OpenAPIRoute {
   schema = {
     tags: ['LeetCode v1'],
     request: {
-      query: z.object({
-        difficulty: Enumeration({
-          values: difficulties.map((difficulty) => difficulty.toLowerCase()),
-          default: 'all',
-        }),
-      }),
-      params: z.object({
-        username: Str({
-          required: true,
-        }),
-      }),
+      query: z
+        .object({})
+        .merge(difficultiesParamV1)
+        .merge(shieldExtraConfigsParams),
+      params: usernameParam,
     },
     responses: {
-      200: {
-        description: 'Successful Response',
-        content: {
-          'img/svg+xml': {
-            schema: Str(),
-          },
-        },
-      },
+      200: successfulResponse,
     },
   }
 
   async handle() {
     const data = await this.getValidatedData<typeof this.schema>()
     const { username } = data.params
-    const { difficulty } = data.query
+    const { difficulty, ...shieldExtraConfigs } = data.query
     const shield = await solvedProblemsBadge(
       username,
-      difficulty[0].toUpperCase() + difficulty.slice(1)
+      difficulty[0].toUpperCase() + difficulty.slice(1),
+      shieldExtraConfigs
     )
     return new Response(shield, {
       headers: {
