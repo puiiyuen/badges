@@ -1,15 +1,29 @@
 name: Deploy Worker
+
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    name: Deploy
     steps:
-      - uses: actions/checkout@v2
-      - name: Build & Deploy Worker
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: pnpm
+          workingDirectory: ./packages/leetcode
