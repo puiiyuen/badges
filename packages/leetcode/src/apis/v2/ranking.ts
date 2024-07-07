@@ -1,19 +1,12 @@
-import { Enumeration, OpenAPIRoute, Str } from 'chanfana'
+import { OpenAPIRoute, Str } from 'chanfana'
 import { z } from 'zod'
 
-import { difficulties } from '../adapters/leetcode'
-import { solvedProblemsBadge } from '../services/solved-problems'
+import { rankingBadge } from '../../services/ranking'
 
-export class SolvedProblems extends OpenAPIRoute {
+export class Ranking extends OpenAPIRoute {
   schema = {
     tags: ['LeetCode'],
     request: {
-      query: z.object({
-        difficulty: Enumeration({
-          values: difficulties,
-          default: 'All',
-        }),
-      }),
       params: z.object({
         username: Str({
           required: true,
@@ -35,8 +28,7 @@ export class SolvedProblems extends OpenAPIRoute {
   async handle() {
     const data = await this.getValidatedData<typeof this.schema>()
     const { username } = data.params
-    const { difficulty } = data.query
-    const shield = await solvedProblemsBadge(username, difficulty)
+    const shield = await rankingBadge(username)
     return new Response(shield, {
       headers: {
         'content-type': 'image/svg+xml',

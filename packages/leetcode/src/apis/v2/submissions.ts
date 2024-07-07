@@ -1,8 +1,8 @@
 import { Bool, Enumeration, OpenAPIRoute, Str } from 'chanfana'
 import { z } from 'zod'
 
-import { difficulties } from '../adapters/leetcode'
-import { submissionsBadge } from '../services/submissions'
+import { difficulties } from '../../adapters/leetcode'
+import { submissionsBadge } from '../../services/submissions'
 
 export class Submissions extends OpenAPIRoute {
   schema = {

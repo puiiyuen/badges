@@ -1,11 +1,11 @@
 import { OpenAPIRoute, Str } from 'chanfana'
 import { z } from 'zod'
 
-import { rankingBadge } from '../services/ranking'
+import { rankingBadge } from '../../services/ranking'
 
 export class Ranking extends OpenAPIRoute {
   schema = {
-    tags: ['LeetCode'],
+    tags: ['LeetCode v1'],
     request: {
       params: z.object({
         username: Str({
