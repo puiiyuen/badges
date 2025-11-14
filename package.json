@@ -5,5 +5,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^4.48.0"
+  }
 }
