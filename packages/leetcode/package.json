@@ -13,7 +13,7 @@
     "wrangler": "^4.48.0"
   },
   "dependencies": {
-    "axios": "^1.7.4",
+    "axios": "^1.16.0",
     "badge-maker": "^4.0.0",
     "chanfana": "^2.0.2",
     "hono": "^4.10.2",
