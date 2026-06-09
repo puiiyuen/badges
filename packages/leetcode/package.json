@@ -10,7 +10,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251109.0",
     "typescript": "^5.4.5",
-    "wrangler": "^4.48.0"
+    "wrangler": "^4.59.1"
   },
   "dependencies": {
     "axios": "^1.16.0",
