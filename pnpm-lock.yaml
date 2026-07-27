@@ -24,8 +24,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       hono:
-        specifier: ^4.12.21
-        version: 4.12.21
+        specifier: ^4.12.27
+        version: 4.12.27
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -585,8 +585,8 @@ packages:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
-  hono@4.12.21:
-    resolution: {integrity: sha512-uV63apnb0kyPtAUwoWgaGh9HyIFcv8lgmzPZSiTBQAFOFGIzka5EZ1dZocmGnn0XdX0+XTqJ6Tqv7selMuGLRQ==}
+  hono@4.12.27:
+    resolution: {integrity: sha512-1yrb/+w6HWQJrUCLkJ2IF5jNIPvvFkblV5RNOYl6bV+OA6p9GLcMpHFFGTosSvHvcAUibuUukRqhlYI4z32C7Q==}
     engines: {node: '>=16.9.0'}
 
   js-yaml@4.1.0:
@@ -1118,7 +1118,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.12.21: {}
+  hono@4.12.27: {}
 
   js-yaml@4.1.0:
     dependencies:
